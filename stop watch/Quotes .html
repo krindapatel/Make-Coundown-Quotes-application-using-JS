@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000dff;
+            margin: 0;
+        }
+
+        .quote-container {
+            text-align: center;
+            background-color:darkcyan;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quote-container">
+        <h1>Random Quote Generator</h1>
+        <p id="quote">Click the button to get a quote!</p>
+        <button id="new-quote">New Quote</button>
+    </div>
+    <script>
+        // app.js
+        const quotes = [
+            "The only way to do great work is to love what you do. – Steve Jobs",
+            "Life is what happens when you're busy making other plans. – John Lennon",
+            "Get busy living or get busy dying. – Stephen King",
+            "You miss 100% of the shots you don't take. – Wayne Gretzky",
+            "It does not matter how slowly you go as long as you do not stop. – Confucius",
+            "In the end, we will remember not the words of our enemies, but the silence of our friends. – Martin Luther King Jr.",
+            "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. – Ralph Waldo Emerson"
+        ];
+
+        // Function to get a random quote from the array
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        // Update the quote displayed in the HTML
+        function displayQuote() {
+            const quoteElement = document.getElementById('quote');
+            quoteElement.textContent = getRandomQuote();
+        }
+
+        // Set up event listener for the "New Quote" button
+        document.getElementById('new-quote').addEventListener('click', displayQuote);
+
+        // Display the first quote when the page loads
+        displayQuote();
+
+    </script>
+</body>
+
+</html>
